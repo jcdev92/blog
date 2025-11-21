@@ -1,9 +1,11 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-const pageTitle = "Home"
-const pageDescription = "Home"
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+const pageTitle = "Home";
+const pageDescription = "Home";
 ---
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,11 +14,12 @@ const pageDescription = "Home"
     <meta name="description" content={pageDescription} />
   </head>
   <body>
-	<Header />
+    <Header />
     <h1>Home</h1>
-	<p>
-		Bienvenidos al blog de jesus clemente aqui aprenderemos a crear blogs con astro.
-	</p>
-	<Footer />
+    <p>
+      Bienvenidos al blog de jesus clemente aqui aprenderemos a crear blogs con
+      astro.
+    </p>
+    <Footer />
   </body>
 </html>
