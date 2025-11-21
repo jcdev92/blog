@@ -1,4 +1,5 @@
 ---
+import Navigation from "@/components/Navigation.astro";
 import "@/styles/global.css";
 const pageTitle = "Sobre mi";
 const pageDescription = "Todo sobre jcdev";
@@ -36,9 +37,7 @@ const skillColor = "crimson"
     </style>
   </head>
   <body>
-    <a href="/">Inicio</a>
-    <a href="/about/">{pageTitle}</a>
-    <a href="/blog/">Blog</a>
+    <Navigation />
     <h1>{pageTitle}</h1>
     <h2>... ¡y mi nuevo sitio Astro!</h2>
     <p>
