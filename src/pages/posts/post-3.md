@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: Mi tercera publicación en el blog
-author: Alumno de Astro 3
+author: 'Jesus Clemente'
 description: "Tuve algunos problemas, pero preguntar en la comunidad me ayudó mucho."
 image:
     url: "https://docs.astro.build/assets/rays.webp"

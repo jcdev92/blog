@@ -1,0 +1,11 @@
+---
+const { frontmatter, postUrl } = Astro.props;
+---
+<div>
+    <a href={postUrl}><h2>{frontmatter.title}</h2></a>
+    <p>{frontmatter.description}</p>
+    <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
+    <p>Escrito por: {frontmatter.author}</p>
+    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+    <slot />
+</div>

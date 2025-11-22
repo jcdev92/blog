@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import BlogPost from "@/components/BlogPost.astro";
 const pageTitle = "Blog";
 const pageDescription = "Blog";
 const allBlogs = Object.values(
@@ -15,6 +16,7 @@ const allBlogs = Object.values(
       {
         allBlogs.map((post: any) => (
           <li>
+            <BlogPost postUrl={post.url} frontmatter={post.frontmatter} />
             <a href={post.url}>{post.frontmatter.title}</a>
           </li>
         ))
