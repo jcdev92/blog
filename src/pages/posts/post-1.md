@@ -7,7 +7,7 @@ author: 'Jesus Clemente'
 image:
     url: 'https://docs.astro.build/assets/rose.webp'
     alt: 'El logotipo de Astro sobre un fondo oscuro con un brillo rosado.'
-tags: ["astro", "bloguear", "aprender en público"]
+tags: ["astro", "bloguear", "aprender en público", "frontend"]
 ---
 
 ¡Bienvenido a mi _nuevo blog_ sobre el aprendizaje de Astro! Aquí, voy a compartir mi viaje de aprendizaje a medida que construyo un nuevo sitio web.

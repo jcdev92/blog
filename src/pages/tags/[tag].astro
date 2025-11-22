@@ -1,20 +1,46 @@
 ---
+import BlogPost from "@/components/BlogPost.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
-  return [
-    { params: { tag: "astro" } },
-    { params: { tag: "éxitos" } },
-    { params: { tag: "comunidad" } },
-    { params: { tag: "bloguear" } },
-    { params: { tag: "contratiempos" } },
-    { params: { tag: "aprender en público" } },
+  const allBlogs = Object.values(
+    import.meta.glob("../posts/*.md", { eager: true })
+  );
+  const uniqueTags = [
+    ...new Set(allBlogs.flatMap((post: any) => post.frontmatter.tags)),
   ];
+  return uniqueTags.map((tag: any) => {
+    const filteredPosts = allBlogs.filter((post: any) =>
+      post.frontmatter.tags.includes(tag)
+    );
+    return {
+      params: {
+        tag,
+      },
+      props: {
+        posts: filteredPosts,
+      },
+    };
+  });
 }
 
 const { tag } = Astro.params;
+const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag}>
   <p>Entradas etiquetadas con {tag}</p>
+  <ul>
+    {
+      posts.length > 0 ? (
+        posts.map((post: any) => (
+          <li>
+            <BlogPost post={post} />
+          </li>
+        ))
+      ) : (
+        <li>No hay entradas con el tag {tag}</li>
+      )
+    }
+  </ul>
 </BaseLayout>
