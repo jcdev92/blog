@@ -16,8 +16,7 @@ const allBlogs = Object.values(
       {
         allBlogs.map((post: any) => (
           <li>
-            <BlogPost postUrl={post.url} frontmatter={post.frontmatter} />
-            <a href={post.url}>{post.frontmatter.title}</a>
+            <BlogPost post={post} frontmatter={post.frontmatter} />
           </li>
         ))
       }
