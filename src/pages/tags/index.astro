@@ -1,0 +1,19 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const pageTitle = "Tags";
+const tags = Object.values(
+    import.meta.glob("../posts/*.md", { eager: true })
+).flatMap((post: any) => post.frontmatter.tags);
+const uniqueTags = [...new Set(tags)];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <ul>
+        {uniqueTags.map((tag: any) => (
+            <li>
+                <a href={`/tags/${tag}`}>{tag}</a>
+            </li>
+        ))}
+    </ul>
+</BaseLayout>
+
