@@ -1,11 +1,16 @@
 ---
-const { frontmatter, post } = Astro.props;
+const { post } = Astro.props;
 ---
+
 <div>
-    <a href={post.url}><h2>{frontmatter.title}</h2></a>
-    <p>{frontmatter.description}</p>
-    <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
-    <p>Escrito por: {frontmatter.author}</p>
-    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-    <slot />
+  <a href={post.url}><h2>{post.frontmatter.title}</h2></a>
+  <p>{post.frontmatter.description}</p>
+  <p>{post.frontmatter.pubDate.toString().slice(0, 10)}</p>
+  <p>Escrito por: {post.frontmatter.author}</p>
+  <img
+    src={post.frontmatter.image.url}
+    width="300"
+    alt={post.frontmatter.image.alt}
+  />
+  <slot />
 </div>
