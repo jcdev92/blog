@@ -2,18 +2,42 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 const pageTitle = "Tags";
 const tags = Object.values(
-    import.meta.glob("../posts/*.md", { eager: true })
+  import.meta.glob("../posts/*.md", { eager: true })
 ).flatMap((post: any) => post.frontmatter.tags);
 const uniqueTags = [...new Set(tags)];
 ---
-
 <BaseLayout pageTitle={pageTitle}>
-    <ul>
-        {uniqueTags.map((tag: any) => (
-            <li>
-                <a href={`/tags/${tag}`}>{tag}</a>
-            </li>
-        ))}
-    </ul>
+  <ul class="tags">
+    {
+      uniqueTags.map((tag: any) => (
+        <li class="tag">
+          <a href={`/tags/${tag}`}>{tag}</a>
+        </li>
+      ))
+    }
+  </ul>
 </BaseLayout>
 
+
+<style>
+  a {
+    color: #00539f;
+    text-decoration: none;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    font-size: 1.15em;
+    background-color: #f8fcfd;
+    text-decoration: none;
+  }
+</style>
