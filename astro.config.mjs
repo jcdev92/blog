@@ -6,4 +6,5 @@ export default defineConfig({
   image: {
     domains: ["docs.astro.build"],
   },
+  site: "https://elblogdelgzus.netlify.app/",
 });
