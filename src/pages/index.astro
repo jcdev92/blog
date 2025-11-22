@@ -1,25 +1,12 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import "../styles/global.css";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 const pageTitle = "Home";
 const pageDescription = "Home";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{pageTitle}</title>
-    <meta name="description" content={pageDescription} />
-  </head>
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
   <body>
-    <Header />
-    <h1>Home</h1>
-    <p>
-      Bienvenidos al blog de jesus clemente aqui aprenderemos a crear blogs con
-      astro.
-    </p>
-    <Footer />
+    <h2>Bienvenidos al blog de jesus clemente</h2>
+    <p>Aqui aprenderemos a crear blogs con astro.</p>
   </body>
-</html>
+</BaseLayout>

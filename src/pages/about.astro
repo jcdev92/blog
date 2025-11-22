@@ -1,6 +1,5 @@
 ---
-import Footer from "@/components/Footer.astro";
-import Header from "@/components/Header.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import "@/styles/global.css";
 const pageTitle = "Sobre mi";
 const pageDescription = "Todo sobre jcdev";
@@ -17,29 +16,21 @@ const happy = true;
 const finished = false;
 const goal = 3;
 
-const skillColor = "crimson"
+const skillColor = "crimson";
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
-    <meta name="description" content={pageDescription} />
-    <style define:vars={{ skillColor }}>
-        h1 {
-            color: purple;
-            font-size: 4rem;
-        }
-        .skill {
-            color: var(--skillColor);
-            font-weight: bold;
-        }
-    </style>
-  </head>
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+  <style is:global define:vars={{ skillColor }}>
+    h1 {
+      color: purple;
+      font-size: 4rem;
+    }
+    .skill {
+      color: var(--skillColor);
+      font-weight: bold;
+    }
+  </style>
   <body>
-    <Header />
-    <h1>{pageTitle}</h1>
     <h2>... ¡y mi nuevo sitio Astro!</h2>
     <p>
       Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda
@@ -77,6 +68,5 @@ const skillColor = "crimson"
         <p>Mi objetivo no son 3 días.</p>
       )
     }
-    <Footer />
   </body>
-</html>
+</BaseLayout>
